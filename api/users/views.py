@@ -7,6 +7,8 @@ def index(request):
     collection = db["users"]
 
     posts = collection.find()
-    result = ", ".join(posts)
+    result = []
+    for i in posts:
+        result.append(i)
 
-    return HttpResponse(result)
+    return HttpResponse(str(result))
